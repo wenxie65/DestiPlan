@@ -2,14 +2,62 @@
 <html>
 <head>
     <title>DestiPlan - Your Personal Travel Itinerary Planner</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+    <div class="navbar">
+        <p class="app-name">DestiPlan</p>
+        <a class="start-button" href="/plan">START</a>
+    </div>
+
     <div class="container">
         <div class="section slogan">
-            <div class="slogan">Celebrate the Journey<br>Leave the Planning to DestiPlan</div>
+            <div class="slogan">Turning Dreams into Destinations</div>
             <input type="submit" value="Plan My Trip!" data-wait="Please wait..." class="button">
         </div>
     </div>
+
+    <section class="heading-left">
+        <div class="wrapper">
+            <div class="split-left">
+                <h1>ABOUT</h1>
+                <p class="about">DestiPlan is your all-in-one solution for planning the perfect trip. Whether you're a solo adventurer, a family on vacation, or a group of friends exploring new destinations, DestiPlan can help you create personalized travel itineraries that enhance your travel experience.</p>
+            </div>
+            <div class="splits-right">
+                <img src="{{ url_for('static', filename='images/airplane.jpg') }}" alt="Airplane" style="width: 700px; height: auto;">
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section">
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+            <li class="feature-item">
+                <div class="feature-icon icon-customized"></div>
+                <div class="feature-text">Customized Travel Plans</div>
+            </li>
+            <li class="feature-item">
+                <div class="feature-icon icon-real-time"></div>
+                <div class="feature-text">Real-time Travel Data</div>
+            </li>
+            <li class="feature-item">
+                <div class="feature-icon icon-recommendations"></div>
+                <div class="feature-text">Local Recommendations</div>
+            </li>
+            <li class="feature-item">
+                <div class="feature-icon icon-weather"></div>
+                <div class="feature-text">Weather Forecast</div>
+            </li>
+            <li class="feature-item">
+                <div class="feature-icon icon-events"></div>
+                <div class="feature-text">Event Information</div>
+            </li>
+            <li class="feature-item">
+                <div class="feature-icon icon-booking"></div>
+                <div class="feature-text">Easy Booking Services</div>
+            </li>
+        </ul>
+    </section>
+
 </body>
 </html>
