@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DestiPlan - Plan My Trip</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script>
+            function updateBudgetValue() {
+                var budgetSlider = document.getElementById("budgetSlider");
+                var manualBudget = document.getElementById("manualBudget");
+                manualBudget.value = budgetSlider.value;
+            }
+
+            function updateSliderValue() {
+                var budgetSlider = document.getElementById("budgetSlider");
+                var manualBudget = document.getElementById("manualBudget");
+
+                var newValue = parseFloat(manualBudget.value);
+                if (!isNaN(newValue) && newValue >= parseFloat(budgetSlider.min) && newValue <= parseFloat(budgetSlider.max)) {
+                    budgetSlider.value = newValue;
+                    budgetValue.textContent = newValue;
+                }
+            }
+
+            function toggleActivities() {
+                var activities = document.getElementById("activities");
+                if (activities.style.display === "block") {
+                    activities.style.display = "none";
+                } else {
+                    activities.style.display = "block";
+                }
+            }
+
+            function handleKeyPress(event) {
+                if (event.key === "Enter") {
+                    document.getElementById("submit-button").click();
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="plan-title">
+            <p class="title">Plan Your Trip with DestiPlan</p>
+        </div>
+
+        <div class="plan-container">
+            <h2>Enter Your Travel Details</h2>
+            <form action="/echo_user_input" method="POST">
+                <label for="destination">Destination:</label>
+                <select name="destination" id="destination" required title="Please select a state.">
+                    <option value="" disabled selected>Select a State</option>
+                    {% for state in us_states %}
+                        <option value="{{state}}">{{state}}</option>
+                    {% endfor %}
+                </select><br>
+
+                <label for="dates">Dates:</label>
+                <input type="date" name="dates" id="dates" min="{{current_date}}" max="{{max_date}}"required title="Please select a date."><br>
+
+                <label for="budgetSlider">Budget:</label>
+                <input type="range" name="budget" id="budgetSlider" min="100" max="10000" step="100" oninput="updateBudgetValue()" value="100">
+                <span>$</span>
+                <input type="number" name="manual_budget" id="manualBudget" min="100" max="10000" step="100" oninput="updateSliderValue()" value="100"><br>
+
+                <button type="button" class="collapsible activities-button" onclick="toggleActivities()">Select Activities</button>
+                <div class="content" id="activities" style="display: none;">
+                    <div class="checkbox-container">
+                        {% for activity in activities_options %}
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="activities" id="{{ activity }}" value="{{ activity }}"> {{ activity }}
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div><br>
+
+                <input type="submit" value="Generate Itinerary" id="submit-button" class="button plan-button">
+            </form>
+        </div>
+
+    </body>
+</html>

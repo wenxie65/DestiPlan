@@ -2,7 +2,7 @@ body {
     color: #000;
     background-color: #fac960;
     font-family: Roboto, san-serif;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 30px;
 }
 
@@ -207,4 +207,102 @@ h2 {
 
 .icon-booking::before {
     content: "📅";
+}
+
+.plan-title {
+    background-color: #f9db70;
+    color: #8a6d2f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.title {
+    color: #8a6d2f;
+    text-shadow: none;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.plan-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 100px;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-container {
+    column-count: 3;
+    column-gap: 20px;
+    text-align: left;
+    padding: 20px;
+}
+
+.checkbox-item {
+    margin-right: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #ffab40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ff902b; /* Change the hover color */
+}
+
+.activities-button {
+    background-color: #ffab40;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.activities-button:hover {
+    background-color: #ff902b;
+}
+
+.plan-button {
+    background-color: #ff5722;
+}
+
+.plan-button:hover {
+    background-color: #e64a19;
 }
